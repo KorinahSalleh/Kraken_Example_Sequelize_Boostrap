@@ -36,7 +36,7 @@
 
               <tr>
                 <td>{@idx}{@math key="{$idx}" method="add" operand="1"/}{/idx}</td>
-                <td><a href="candidate_details.html">{full_name}</a></td>
+                <td>{full_name}</td>
                 <td>Senior Software Engineer</td>
 
                 <td>
