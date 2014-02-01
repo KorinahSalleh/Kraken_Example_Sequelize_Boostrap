@@ -52,3 +52,20 @@ module.exports = lodash.extend({
   sequelize: sequelize,
   Sequelize: Sequelize
 }, db)
+
+
+
+  // Use for First time Setup
+  // { force: true } will remove all existing tables and re-create them afterwards.
+
+/*
+  sequelize
+    .sync({ force: true })
+    .complete(function(err) {
+      if (err) {
+        console.log('Unable to create a table', err)
+      } else {
+        console.log('create a tables successfully.')
+      }
+    })
+*/
