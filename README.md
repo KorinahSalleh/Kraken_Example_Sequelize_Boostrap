@@ -9,7 +9,7 @@ Clone this repo: `git clone https://github.com/KorinahSalleh/Kraken_Example_Sequ
 
 Install the dependencies: `npm install`
 
-Start the server: `npm start`
+Start the server: `npm start` and visit a page http://localhost:8000
 
 ## Prerequisites
 * This example requires that MySQL is installed.
@@ -37,3 +37,9 @@ To create tables, Open the `.models/index.js`: Uncomment line 61 - 71
 ## Sequelize js with Express
 * http://sequelizejs.com/articles/express
 * https://github.com/sequelize/sequelize-expressjs-example
+
+## Note
+I'm still working on to add the Login and Role section
+If you find any typos, errors, bugs or you have suggestions for improvement, please feel free to open an issue.
+
+
