@@ -39,7 +39,7 @@ To create tables, Open the `.models/index.js`: Uncomment line 61 - 71
 * https://github.com/sequelize/sequelize-expressjs-example
 
 ## Note
-I'm still working on to add the Login and Role section
+I'm still working on to add the Login section
 If you find any typos, errors, bugs or you have suggestions for improvement, please feel free to open an issue.
 
 
