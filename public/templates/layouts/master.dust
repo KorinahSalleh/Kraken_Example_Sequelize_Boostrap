@@ -53,6 +53,17 @@
               <li><a href="/candidates">Candidate</a></li>
             {/eq}
 
+            {@eq key=pagetitle value="Admin"}
+              <li class="active dropdown">
+            {:else}
+              <li class="dropdown">
+            {/eq}
+
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/role">Role</a></li>
+              </ul>
+            </li>
           </ul>
 
         </div><!--/.nav-collapse -->

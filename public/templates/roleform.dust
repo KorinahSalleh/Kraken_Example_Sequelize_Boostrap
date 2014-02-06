@@ -1,0 +1,99 @@
+{>"layouts/master" /}
+
+{<body}
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row" id="content_container">
+        <div class="col-lg-12">
+
+              <div class="widget">
+                <div class="widget-head">
+                  {action} Role
+                </div>
+                <div class="widget-content">
+                  <div class="padd">
+
+                    {@if cond="'{editmessage}'.length"}
+                    <p class="bg-success messagebox">{editmessage}</p>
+                    {/if}
+                    {@if cond="'{errormessage}'.length"}
+                    <p class="bg-danger messagebox">{errormessage}</p>
+                    {/if}
+
+
+                    <!-- Form starts.  -->
+                     {@select key=action}
+                       {@eq value="Add"}
+                       <form class="form-horizontal" role="form" method="POST" action="/role/add">
+                       {/eq}
+                       {@eq value="Edit"}
+                       <form class="form-horizontal" role="form" method="POST" action="/role/edit">
+                       {/eq}
+                     {/select}
+
+                      <div class="form-group">
+                        <label class="col-md-1 col-lg-2 control-label">Position Name</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control input-sm" name="name" value="{role.name}">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-1 col-lg-2 control-label">Role</label>
+                        <div class="col-lg-8">
+                          <select class="form-control" name="level">
+                            {@eq key=action value="Add"}
+                              <option value="T23">T23</option>
+                              <option value="T24">T24</option>
+                              <option value="T25">T25</option>
+                              <option value="T26">T26</option>
+                              <option value="T27">T27</option>
+                            {:else}
+                              <option value="T23" {@eq key=role.level value="T23"}selected="true"{/eq}>T23</option>
+                              <option value="T24" {@eq key=role.level value="T24"}selected="true"{/eq}>T24</option>
+                              <option value="T25" {@eq key=role.level value="T25"}selected="true"{/eq}>T25</option>
+                              <option value="T26" {@eq key=role.level value="T26"}selected="true"{/eq}>T26</option>
+                              <option value="T27" {@eq key=role.level value="T27"}selected="true"{/eq}>T27</option>
+                            {/eq}
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-md-1 col-lg-2 control-label">Job Description</label>
+                        <div class="col-lg-8">
+                            <textarea rows="5" class="form-control focus" name="job_desc">{role.job_desc}</textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-lg-offset-1 col-lg-9">
+                          {@eq key=action value="Edit"}
+                          <input type="hidden" name="id" value="{role.id}">
+                          {/eq}
+                          <input type="hidden" name="_csrf" value="{_csrf}">
+                          <button type="submit" class="btn btn-primary btn-sm">
+                          {@select key=action}
+                            {@eq value="Add"}Submit{/eq}
+                            {@eq value="Edit"}Save{/eq}
+                          {/select}
+                          </button>
+                          &nbsp;or
+                          &nbsp;&nbsp;<a class="text-danger" href="/role">Cancel</a>
+                        </div>
+                      </div>
+
+                      </form>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+        </div> <!-- /col-lg-4 -->
+      </div> <!-- /row -->
+
+    </div> <!-- /container -->
+
+{/body}

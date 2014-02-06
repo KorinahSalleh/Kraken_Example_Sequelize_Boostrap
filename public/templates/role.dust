@@ -6,10 +6,10 @@
       <div class="row" id="content_container">
         <div class="col-lg-12">
 
-          <h2>{pagetitle}</h2>
+          <h2>Role</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 
-          <p class="pull-right"><a class="btn btn-default" href="/candidates/form">Create Candidate</a></p>
+          <p class="pull-right"><a class="btn btn-default" href="/role/form">Create Role</a></p>
           <div class="clearfix"></div>
 
           {@eq key=action value="list"}
@@ -23,36 +23,27 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Candidate</th>
-                <th>Role</th>
-                <th>Status</th>
+                <th>Position Name</th>
+                <th>Level</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
 
-            {?candidates}
-            {#candidates}
+            {?roles}
+            {#roles}
 
               <tr>
                 <td>{@idx}{@math key="{$idx}" method="add" operand="1"/}{/idx}</td>
-                <td><a href="/candidate_details">{full_name}</a></td>
-                <td>{role.name}</td>
-
-                <td>
-                  {@select key=status }
-                    {@eq value="WAIT"}<span class="label label-warning">{status}</span>{/eq}
-                    {@eq value="FAIL"}<span class="label label-danger">{status}</span>{/eq}
-                    {@eq value="HIRE"}<span class="label label-success">{status}</span>{/eq}
-                  {/select}
-                </td>
+                <td>{name}</a></td>
+                <td>{level}</td>
 
                 <td>
                   <div class="btn-group1">
-                    <a class="btn btn-xs btn-info" href="/candidates/{id}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <a class="btn btn-xs btn-info" href="/role/{id}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                     &nbsp;&nbsp;
-                    <form method="POST" action="/candidates" class="formbutton">
-                      <input type="hidden" name="cand_id" value="{id}">
+                    <form method="POST" action="/role" class="formbutton">
+                      <input type="hidden" name="role_id" value="{id}">
                       <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span> Remove </button>
                       <input type="hidden" name="_csrf" value="{_csrf}">
                       <input type="hidden" name="_method" value="DELETE">
@@ -61,10 +52,10 @@
                 </td>
               </tr>
 
-            {/candidates}
+            {/roles}
             {:else}
-              <td colspan=5>There are no candidate.
-            {/candidates}
+              <td colspan=5>There are no role.
+            {/roles}
 
             </tbody>
           </table>

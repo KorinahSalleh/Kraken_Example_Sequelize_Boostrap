@@ -31,16 +31,6 @@
                      {/eq}
                      {/select}
 
-                      <!--div class="form-group">
-                        <label class="col-md-1 col-lg-2 control-label">Role</label>
-                        <div class="col-lg-8">
-                          <select class="form-control">
-                            <option>Software Engineer</option>
-                            <option>Senior Software Engineer</option>
-                          </select>
-                        </div>
-                      </div-->
-
                       <div class="form-group">
                         <label class="col-md-1 col-lg-2 control-label">Candidate</label>
                         <div class="col-lg-8">
@@ -48,8 +38,34 @@
                         </div>
                       </div>
 
+                      <div class="form-group">
+                        <label class="col-md-1 col-lg-2 control-label">Role</label>
+                        <div class="col-lg-8">
+                          <select class="form-control" name="role_id">
+
+                          {@eq key=action value="Edit"}
+                            {#rolelists}
+                            <option value="{id}" {@if cond="{id}=={candidates.role.id}" }selected="true"{/if}>{name} ({level})</option>
+                            {/rolelists}
+
+                          {:else}
+                            {#rolelists}
+                            <option value="{id}">{name} ({level})</option>
+                            {/rolelists}
+                          {/eq}
+
+                          </select>
+                        </div>
+                      </div>
 
                       {@eq key=action value="Edit"}
+                      <!--div class="form-group">
+                        <label class="col-md-1 col-lg-2 control-label">Overall Rating</label>
+                        <div class="col-lg-8">
+                            <textarea rows="5" class="form-control focus"></textarea>
+                        </div>
+                      </div-->
+
                       <div class="form-group">
                         <label class="col-md-1 col-lg-2 control-label">Status</label>
                         <div class="col-lg-8">
